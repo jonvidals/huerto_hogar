@@ -12,35 +12,35 @@ html, body {
   position: relative;
   top: 0;
   width: 100%;
-  background: rgba(41,44,41,0.2);
+  background: rgba(28, 35, 28, 0.2);
   z-index: 1000;
   display: flex;
   flex-direction: column;
   padding: 0;
 }
 
+/* --- Top Bar --- */
 .top-bar {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 14px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  background-color: rgba(255,255,255,0.1);
-  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   transition: all 0.5s ease;
+  box-sizing: border-box;
+  padding: 0;
 }
 
 body.scrolled .top-bar {
-  background-color: rgba(41,44,41,0.95);
+  background-color: rgba(153, 200, 153, 0.95);
 }
 
-body.scrolled .secondary-nav {
-  background-color: rgba(34,34,34,0.95);
-}
-
+/* Contenedores */
 .top-bar .container,
 .banner .container {
   display: flex;
@@ -59,10 +59,15 @@ body.scrolled .secondary-nav {
 
 .logo {
   height: 70px;
-  object-fit: contain;
 }
 
 /* ==================== SEARCH ==================== */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .search-form {
   display: flex;
   align-items: center;
@@ -74,6 +79,7 @@ body.scrolled .secondary-nav {
 }
 
 .search-box {
+  padding-left: 50px;
   border: none;
   outline: none;
   padding: 10px 14px;
@@ -105,6 +111,25 @@ body.scrolled .secondary-nav {
   transform: scale(1.05);
 }
 
+.btn-search-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.btn-search-toggle svg {
+  width: 22px;
+  height: 22px;
+  stroke: #1f2937;
+}
+
 /* ==================== BOTONES ==================== */
 .btn-login,
 .right-section .btn-login {
@@ -130,18 +155,23 @@ body.scrolled .secondary-nav {
   justify-content: center;
   gap: 20px;
   position: fixed;
-  top: 95px;
+  top: 72px;
   width: 100%;
   padding: 6px 0;
   z-index: 1001;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   transition: all 0.3s ease;
+}
+
+body.scrolled .secondary-nav {
+  background-color: rgba(34,34,34,0.95);
 }
 
 .secondary-nav a {
   text-decoration: none;
-  color: #fff;
+  color: #1f2937;
   font-weight: 600;
   font-size: 14px;
   text-transform: uppercase;
@@ -149,6 +179,10 @@ body.scrolled .secondary-nav {
   padding: 4px 10px;
   border-radius: 4px;
   transition: all 0.3s ease-in-out;
+}
+
+body.scrolled .secondary-nav a {
+  color: #f9fafb;
 }
 
 .secondary-nav a:hover {
@@ -211,7 +245,13 @@ nav a:hover::after {
   overflow-y: auto;
 }
 
-.sidebar a {
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sidebar-nav a {
   color: #fff;
   font-weight: 600;
   font-size: 18px;
@@ -221,14 +261,14 @@ nav a:hover::after {
   transition: background 0.3s, transform 0.2s;
 }
 
-.sidebar a:hover {
+.sidebar-nav a:hover {
   background: rgba(255,255,255,0.1);
   transform: translateX(5px);
 }
 
 .sidebar-login {
-  background-color: #fff;
-  color: #16a34a;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: #fff;
   border: none;
   padding: 12px 18px;
   border-radius: 12px;
@@ -240,9 +280,8 @@ nav a:hover::after {
 }
 
 .sidebar-login:hover {
-  background-color: #16a34a;
-  color: #fff;
-  box-shadow: 0 0 12px #fff;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  box-shadow: 0 0 12px rgba(34,197,94,0.5);
   transform: translateX(3px);
 }
 
@@ -296,7 +335,6 @@ body.menu-open .sidebar {
 }
 
 .hero-content h1 {
-  font-family: "Playfair Display", serif;
   font-size: 3.5rem;
   line-height: 1.2;
   margin-bottom: 24px;
@@ -387,29 +425,18 @@ footer {
   display: none;
 }
 
-
 /* ==================== EXTRA RESPONSIVE ==================== */
-@media (max-width: 900px) {
-  .cards {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    max-width: 95vw;
-  }
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-  .productos h2,
-  .about h2 {
-    font-size: 1.6rem;
-  }
-}
-
 @media (max-width: 600px) {
   .hero {
     height: 60vh;
     min-height: 340px;
     padding: 30px 10px;
   }
+
+  .secondary-nav {
+    display: none !important;
+  }
+
   .hero-content {
     max-width: 98vw;
     padding: 0 5px;
@@ -422,6 +449,7 @@ footer {
     font-size: 0.95rem;
     margin-bottom: 18px;
   }
+
   .productos h2,
   .about h2 {
     font-size: 1.2rem;
@@ -432,11 +460,45 @@ footer {
     font-size: 0.95rem;
     margin-bottom: 18px;
   }
+
   .card {
     padding: 14px 8px;
   }
+  .search-box {
+    display: none;
+  }
+
   footer {
     font-size: 12px;
     padding: 12px 4px;
+  }
+  .menu-toggle {
+    display: block;
+  }
+
+  .search-form {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .search-form.active {
+    max-width: 180px;
+    opacity: 1;
+  }
+  .search-form.active .search-box {
+    display: block;
+  }
+  .btn-search {
+    display: none;
+  }
+  .search-form.active .btn-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-login {
+    display: none !important;
   }
 }

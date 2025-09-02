@@ -18,20 +18,37 @@ function changeHero() {
 hero.style.backgroundImage = `url('${images[0]}')`;
 setInterval(changeHero, 5000);
 
-// ==================== MENU TOGGLE ====================
+// ==================== MENU TOGGLE Y SCROLL ====================
 document.addEventListener("DOMContentLoaded", function() {
   const menuToggle = document.querySelector('.menu-toggle');
+  const body = document.body;
 
-  menuToggle?.addEventListener('click', () => {
-    document.body.classList.toggle('menu-open');
+  // Toggle sidebar
+  menuToggle.addEventListener('click', () => {
+    body.classList.toggle('menu-open');
   });
 
-  window.addEventListener("scroll", function() {
+  // Cambiar estilo al hacer scroll
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
-      document.body.classList.add("scrolled");
+      body.classList.add("scrolled");
     } else {
-      document.body.classList.remove("scrolled");
+      body.classList.remove("scrolled");
     }
   });
 });
 
+// ==================== BUSCADOR MOBILE ====================
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.querySelector(".btn-search-toggle");
+  const searchForm = document.querySelector(".search-form");
+  const input = document.querySelector(".search-box");
+
+  toggleBtn?.addEventListener("click", () => {
+    searchForm.classList.toggle("active");
+
+    if (searchForm.classList.contains("active")) {
+      input.focus(); // autofocus al abrir
+    }
+  });
+});
