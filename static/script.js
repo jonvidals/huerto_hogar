@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+
 // ==================== BUSCADOR MOBILE ====================
 document.addEventListener("DOMContentLoaded", () => {
   const toggleBtn = document.querySelector(".btn-search-toggle");
@@ -52,3 +53,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
