@@ -1,0 +1,442 @@
+/* ==================== BASE ==================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", Arial, sans-serif;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* ==================== BANNER ==================== */
+.banner {
+  position: relative;
+  top: 0;
+  width: 100%;
+  background: rgba(41,44,41,0.2);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 14px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background-color: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  transition: all 0.5s ease;
+}
+
+body.scrolled .top-bar {
+  background-color: rgba(41,44,41,0.95);
+}
+
+body.scrolled .secondary-nav {
+  background-color: rgba(34,34,34,0.95);
+}
+
+.top-bar .container,
+.banner .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  height: 70px;
+  object-fit: contain;
+}
+
+/* ==================== SEARCH ==================== */
+.search-form {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+.search-box {
+  border: none;
+  outline: none;
+  padding: 10px 14px;
+  font-size: 14px;
+  flex: 1;
+  border-radius: 50px 0 0 50px;
+}
+
+.btn-search {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 50px 50px 0;
+  transition: all 0.3s ease;
+}
+
+.btn-search svg {
+  width: 18px;
+  height: 18px;
+  stroke: #fff;
+}
+
+.btn-search:hover {
+  background: linear-gradient(135deg, #15803d, #16a34a);
+  transform: scale(1.05);
+}
+
+/* ==================== BOTONES ==================== */
+.btn-login,
+.right-section .btn-login {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover,
+.right-section .btn-login:hover {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  box-shadow: 0 0 12px rgba(34,197,94,0.5);
+}
+
+/* ==================== NAV SECUNDARIO ==================== */
+.secondary-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  top: 95px;
+  width: 100%;
+  padding: 6px 0;
+  z-index: 1001;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.secondary-nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.secondary-nav a:hover {
+  background: rgba(255,255,255,0.2);
+  color: #fff176;
+}
+
+/* ==================== NAVBAR ==================== */
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 6px 10px;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #22c55e;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ==================== SIDEBAR ==================== */
+.sidebar {
+  position: fixed;
+  top: 95px;
+  left: 0;
+  height: calc(100vh - 95px);
+  width: 250px;
+  background: rgba(34,197,94,0.2);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-right: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+  border-radius: 0 15px 15px 0;
+  padding: 25px 20px;
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  overflow-y: auto;
+}
+
+.sidebar a {
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 12px 15px;
+  border-radius: 10px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.sidebar a:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateX(5px);
+}
+
+.sidebar-login {
+  background-color: #fff;
+  color: #16a34a;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-login:hover {
+  background-color: #16a34a;
+  color: #fff;
+  box-shadow: 0 0 12px #fff;
+  transform: translateX(3px);
+}
+
+body.menu-open .sidebar {
+  transform: translateX(0);
+  box-shadow: 6px 0 30px rgba(0,0,0,0.25);
+}
+
+/* ==================== HERO ==================== */
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.6) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  font-family: 'Playfair Display', serif;
+}
+
+.hero-content span {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  background: rgba(71,107,62,0.8);
+  border-radius: 30px;
+  margin-bottom: 20px;
+  color: #fffb00;
+}
+
+.hero-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.55);
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  color: #e5e7eb;
+  margin-bottom: 28px;
+}
+
+.hero-content .btn {
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ==================== PRODUCTOS ==================== */
+.productos h2,
+.about h2 {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 2.4rem;
+  margin-bottom: 16px;
+  color: #064e3b;
+}
+
+.productos p,
+.about p {
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.4rem;
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+  background-color: #393f39;
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 14px;
+}
+
+/* ==================== BOTÓN HAMBURGUESA ==================== */
+.menu-toggle {
+  display: none;
+}
+
+
+/* ==================== EXTRA RESPONSIVE ==================== */
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 95vw;
+  }
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .productos h2,
+  .about h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    height: 60vh;
+    min-height: 340px;
+    padding: 30px 10px;
+  }
+  .hero-content {
+    max-width: 98vw;
+    padding: 0 5px;
+  }
+  .hero-content h1 {
+    font-size: 1.5rem;
+    margin-bottom: 14px;
+  }
+  .hero-content p {
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+  }
+  .productos h2,
+  .about h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .productos p,
+  .about p {
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+  }
+  .card {
+    padding: 14px 8px;
+  }
+  footer {
+    font-size: 12px;
+    padding: 12px 4px;
+  }
+}
