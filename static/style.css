@@ -21,8 +21,8 @@ body {
 
 /* --- Top Bar --- */
 .top-bar {
-  padding-top: 30px;
-  padding-bottom: 22px;
+  padding-top: 20px;
+  padding-bottom: 16px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -156,7 +156,7 @@ body.scrolled .top-bar {
   justify-content: center;
   gap: 20px;
   position: fixed;
-  top: 90px;
+  top:87px;
   width: 100%;
   padding: 6px 0;
   z-index: 1001;
@@ -193,6 +193,49 @@ body.scrolled .secondary-nav a {
   color: #fff176;
 }
 
+/*-----------------         dropdown        -----------------*/
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(34, 34, 34, 0.95);
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  z-index: 1002;
+  flex-direction: column;
+}
+
+.dropdown-content a {
+  color: #e6e6e6;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdown-content a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff176;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
 /* ==================== NAVBAR ==================== */
 nav {
   display: flex;
@@ -228,7 +271,7 @@ nav a:hover::after {
 /* ==================== SIDEBAR ==================== */
 .sidebar {
   position: fixed;
-  top: 74px;
+  top: 0px;
   left: 0;
   height: calc(100vh - 95px);
   width: 250px;
@@ -468,6 +511,47 @@ footer {
   width: 28px;
   height: 28px;
   stroke: #ffffff;
+}
+/*-------------login------------------*/
+#user {
+  border-radius: 100%;
+  padding: 7px;
+  color: #2ecc71; /* verde más vivo */
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#user:hover {
+  background-color: #2ecc71;
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.right-section {
+  display: flex;
+  align-items: center;
+}
+
+.user-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.user-link span {
+  transition: all 0.3s ease;
+}
+
+.right-section a:hover{
+  color: #ffffff; /* Amarillo suave */
+  transform: scale(1.05);
+  text-shadow: 0 1px 6px rgba(255, 255, 0, 0.6);
 }
 
 /* ==================== EXTRA RESPONSIVE ==================== */

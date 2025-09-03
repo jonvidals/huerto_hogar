@@ -22,6 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://kit.fontawesome.com/5f1c718ed0.js" crossorigin="anonymous"></script>
 
     <!-- Estilos -->
     <link rel="stylesheet" href="static/style.css" />
@@ -33,7 +34,6 @@
       <div class="top-bar">
         <div class="container">
           <div class="left-section">
-            <!-- Botón hamburguesa (solo mobile) -->
             <button class="menu-toggle" aria-label="Abrir menú">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -87,14 +87,24 @@
           </div>
 
           <div class="right-section">
-            <button class="btn-login">Acceder</button>
+            <a href="#" class="user-link">
+              <i class="fa-regular fa-user" id="user"></i>
+              <span>¡Hola! Ingresa o regístrate</span>
+            </a>
           </div>
         </div>
       </div>
 
       <!-- NAV SECUNDARIO -->
       <nav class="secondary-nav">
-        <a href="pages/productos.html">Productos</a>
+        <div class="dropdown">
+          <a href="pages/productos.html" class="dropbtn">Productos</a>
+          <div class="dropdown-content">
+            <a href="pages/frutas-frescas.html">Frutas frescas</a>
+            <a href="pages/productos-organicos.html">Productos orgánicos</a>
+            <a href="pages/productos-lacteos.html">Productos lácteos</a>
+          </div>
+        </div>
         <a href="pages/categorias.html">Categorías</a>
         <a href="#">Sucursales</a>
       </nav>
