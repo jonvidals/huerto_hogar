@@ -1,5 +1,6 @@
 /* ==================== BASE ==================== */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: "Inter", Arial, sans-serif;
@@ -16,11 +17,12 @@ html, body {
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  padding: 0;
 }
 
 /* --- Top Bar --- */
 .top-bar {
+  padding-top: 30px;
+  padding-bottom: 22px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -28,16 +30,10 @@ html, body {
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
   transition: all 0.5s ease;
-  box-sizing: border-box;
-  padding: 0;
 }
-
 body.scrolled .top-bar {
-  background-color: rgba(153, 200, 153, 0.95);
+  background-color: rgba(0, 0, 0, 0.95);
 }
 
 /* Contenedores */
@@ -57,8 +53,15 @@ body.scrolled .top-bar {
   gap: 20px;
 }
 
+.logo-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
 .logo {
-  height: 70px;
+  height: 95px;
 }
 
 /* ==================== SEARCH ==================== */
@@ -74,7 +77,7 @@ body.scrolled .top-bar {
   background: #fff;
   border-radius: 50px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
 }
 
@@ -127,12 +130,11 @@ body.scrolled .top-bar {
 .btn-search-toggle svg {
   width: 22px;
   height: 22px;
-  stroke: #1f2937;
+  stroke: #f7f7f7;
 }
 
 /* ==================== BOTONES ==================== */
-.btn-login,
-.right-section .btn-login {
+.btn-login {
   background: linear-gradient(135deg, #16a34a, #22c55e);
   color: #fff;
   border: none;
@@ -143,10 +145,9 @@ body.scrolled .top-bar {
   transition: all 0.3s ease;
 }
 
-.btn-login:hover,
-.right-section .btn-login:hover {
+.btn-login:hover {
   background: linear-gradient(135deg, #22c55e, #16a34a);
-  box-shadow: 0 0 12px rgba(34,197,94,0.5);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
 }
 
 /* ==================== NAV SECUNDARIO ==================== */
@@ -155,28 +156,25 @@ body.scrolled .top-bar {
   justify-content: center;
   gap: 20px;
   position: fixed;
-  top: 72px;
+  top: 90px;
   width: 100%;
   padding: 6px 0;
   z-index: 1001;
-  background-color: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
   transition: all 0.3s ease;
 }
 
 body.scrolled .secondary-nav {
-  background-color: rgba(34,34,34,0.95);
+  background-color: rgba(34, 34, 34, 0.95);
 }
 
 body.scrolled .sidebar {
-  background-color: #99c899; /* mismo color que el navbar al hacer scroll */
+  background-color: #99c899;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .secondary-nav a {
   text-decoration: none;
-  color: #1f2937;
+  color: #e6e6e6;
   font-weight: 600;
   font-size: 14px;
   text-transform: uppercase;
@@ -191,7 +189,7 @@ body.scrolled .secondary-nav a {
 }
 
 .secondary-nav a:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   color: #fff176;
 }
 
@@ -234,12 +232,13 @@ nav a:hover::after {
   left: 0;
   height: calc(100vh - 95px);
   width: 250px;
-  transition: background-color 0.5s ease, box-shadow 0.3s ease, transform 0.4s cubic-bezier(0.4,0,0.2,1);
-  background-color: rgba(34,197,94,0.2);
+  transition: background-color 0.5s ease, box-shadow 0.3s ease,
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgba(34, 197, 94, 0.2);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border-right: 1px solid rgba(255,255,255,0.15);
-  box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
   border-radius: 0 15px 15px 0;
   padding: 25px 20px;
   transform: translateX(-100%);
@@ -248,7 +247,6 @@ nav a:hover::after {
   flex-direction: column;
   gap: 25px;
   overflow-y: auto;
-  
 }
 
 .sidebar-nav {
@@ -268,7 +266,7 @@ nav a:hover::after {
 }
 
 .sidebar-nav a:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   transform: translateX(5px);
 }
 
@@ -287,13 +285,13 @@ nav a:hover::after {
 
 .sidebar-login:hover {
   background: linear-gradient(135deg, #22c55e, #16a34a);
-  box-shadow: 0 0 12px rgba(34,197,94,0.5);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
   transform: translateX(3px);
 }
 
 body.menu-open .sidebar {
   transform: translateX(0);
-  box-shadow: 6px 0 30px rgba(0,0,0,0.25);
+  box-shadow: 6px 0 30px rgba(0, 0, 0, 0.25);
 }
 
 /* ==================== HERO ==================== */
@@ -315,7 +313,13 @@ body.menu-open .sidebar {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.6) 100%);
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.4) 20%,
+    rgba(0, 0, 0, 0.6) 80%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
   z-index: 1;
   pointer-events: none;
 }
@@ -324,33 +328,58 @@ body.menu-open .sidebar {
   position: relative;
   z-index: 2;
   max-width: 720px;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
+  line-height: 1;
 }
 
 .hero-content span {
   display: inline-block;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 600;
-  background: rgba(71,107,62,0.8);
   border-radius: 30px;
-  margin-bottom: 20px;
   color: #fffb00;
+  position: relative;
+}
+
+.hero-content span::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #22c55e;
+  transition: width 0.3s ease, transform 0.3s ease-in-out;
+}
+
+.hero-content span:hover::after {
+  width: 100%;
+  transform: scaleX(1.05);
 }
 
 .hero-content h1 {
-  font-size: 3.5rem;
-  line-height: 1.2;
-  margin-bottom: 24px;
-  text-shadow: 0 6px 20px rgba(0,0,0,0.55);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: "Lora", serif;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.hero-content h1,
+.hero-content p {
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
 }
 
 .hero-content p {
   font-size: 1.1rem;
   color: #e5e7eb;
   margin-bottom: 28px;
+  padding-bottom: 15px;
 }
 
 .hero-content .btn {
@@ -385,7 +414,7 @@ body.menu-open .sidebar {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   max-width: 1000px;
   margin: 0 auto;
@@ -395,14 +424,14 @@ body.menu-open .sidebar {
   background: #fff;
   padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .card h3 {
@@ -438,7 +467,7 @@ footer {
 .menu-toggle svg {
   width: 28px;
   height: 28px;
-  stroke: #000; /* color del ícono (cámbialo si es fondo oscuro) */
+  stroke: #ffffff;
 }
 
 /* ==================== EXTRA RESPONSIVE ==================== */
@@ -457,10 +486,12 @@ footer {
     max-width: 98vw;
     padding: 0 5px;
   }
+
   .hero-content h1 {
     font-size: 1.5rem;
     margin-bottom: 14px;
   }
+
   .hero-content p {
     font-size: 0.95rem;
     margin-bottom: 18px;
@@ -471,6 +502,7 @@ footer {
     font-size: 1.2rem;
     margin-bottom: 10px;
   }
+
   .productos p,
   .about p {
     font-size: 0.95rem;
@@ -480,11 +512,11 @@ footer {
   .card {
     padding: 14px 8px;
   }
+
   .search-box {
     display: none;
   }
 
-  
   .menu-container {
     position: relative;
   }
@@ -500,23 +532,27 @@ footer {
   .top-bar .container {
     position: relative;
   }
-    
+
   .search-form {
     max-width: 0;
     opacity: 0;
     overflow: hidden;
     transition: all 0.3s ease;
   }
+
   .search-form.active {
     max-width: 180px;
     opacity: 1;
   }
+
   .search-form.active .search-box {
     display: block;
   }
+
   .btn-search {
     display: none;
   }
+
   .search-form.active .btn-search {
     display: flex;
     align-items: center;
@@ -526,10 +562,9 @@ footer {
   .btn-login {
     display: none !important;
   }
+
   footer {
     font-size: 12px;
     padding: 12px 4px;
   }
-  
-
 }
