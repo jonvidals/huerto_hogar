@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Huerto Hogar</title>
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/5f1c718ed0.js" crossorigin="anonymous"></script>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="static/style.css" />
+</head>
+<body>
+    <!-- HEADER / BANNER -->
+    <header class="banner">
+        <div class="top-bar">
+            <div class="container">
+                <div class="left-section">
+                    <button class="btn-search-toggle" aria-label="Abrir buscador">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <circle cx="11" cy="11" r="8" stroke-width="2"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" stroke-width="2"/>
+                        </svg>
+                    </button>
+                    <button class="menu-toggle" aria-label="Abrir menú">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="logo-wrapper">
+                    <a href="index.html"><img class="logo" src="templates/HuertoHogar.png" alt="Logo Huerto Hogar"/></a>
+                </div>
+
+                <div class="right-section">
+                    <a href="#" class="user-link">
+                        <span class="user-text">¡Hola! Ingresa o regístrate</span>
+                        <i class="fa-regular fa-user" id="user"></i>
+                    </a>
+                    <a id="carro" href="#"><i class="fa fa-shopping-cart"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="secondary-nav">
+            <div class="dropdown">
+                <a href="pages/productos.html" class="dropbtn">Productos</a>
+                <div class="dropdown-content">
+                    <a href="pages/frutas-frescas.html">Frutas frescas</a>
+                    <a href="pages/productos-organicos.html">Productos orgánicos</a>
+                    <a href="pages/productos-lacteos.html">Productos lácteos</a>
+                </div>
+            </div>
+            <a href="pages/categorias.html">Categorías</a>
+            <a href="#">Sucursales</a>
+        </nav>
+    </header>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <nav class="sidebar-nav">
+            <a href="pages/productos.html">Productos</a>
+            <a href="pages/categorias.html">Categorías</a>
+            <a href="#">Sucursales</a>
+        </nav>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <span>Bienvenido a tu espacio verde</span>
+            <h1>Cultiva en casa alimentos frescos y saludables</h1>
+            <p>Con Huerto Hogar podrás sembrar, cuidar y disfrutar de tus propios productos orgánicos.</p>
+            <a href="pages/productos.html" class="btn">Explorar productos</a>
+        </div>
+    </section>
+
+    <!-- MAIN -->
+    <main>
+        <section class="productos">
+            <h2>Nuestros Productos</h2>
+            <p>Disfruta de la mejor selección de alimentos saludables.</p>
+            <div class="cards">
+                <div class="card">
+                    <h3>🍎 Frutas Frescas</h3>
+                    <p>Variedades seleccionadas directamente del campo a tu hogar, manteniendo su sabor y frescura natural.</p>
+                </div>
+                <div class="card">
+                    <h3>🥦 Verduras Orgánicas</h3>
+                    <p>Hortalizas frescas cultivadas de forma natural, sin químicos ni pesticidas, conservando todo su sabor y nutrientes esenciales.</p>
+                </div>
+                <div class="card">
+                    <h3>🌿 Productos Orgánicos</h3>
+                    <p>Alimentos cultivados sin químicos ni pesticidas, garantizando un consumo responsable y nutritivo.</p>
+                </div>
+                <div class="card">
+                    <h3>🥛 Productos Lácteos</h3>
+                    <p>Leche, quesos y yogures de productores locales, elaborados con procesos naturales para un sabor auténtico.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <h2>Nuestra Historia</h2>
+            <p>Nuestra misión es proporcionar productos frescos y de calidad directamente desde el campo hasta la puerta de nuestros clientes, garantizando la frescura y el sabor en cada entrega.</p>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Huerto Hogar - Todos los derechos reservados</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="static/script.js"></script>
+</body>
+</html>

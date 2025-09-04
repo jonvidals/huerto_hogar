@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Huerto Hogar</title>
+  <link rel="stylesheet" href="../static/style.css" />
+</head>
+<body>
+  <header class="banner transparent">
+    <div class="container">
+    <a href="../index.html"> <img class="logo" src="../templates/HuertoHogar.png" alt="Logo Huerto Hogar" />      </a>
+    
+    <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+
+    <nav>
+        <a href="productos.html">Productos</a>
+        <a href="#"class="activo">Categorías</a>
+        <a href="#">Sucursales</a>
+    </nav>
+
+    <!-- Botón de login solo visible en desktop -->
+    <button class="btn-login">Iniciar Sesión</button>
+    </div>
+  </header>
+
+  <!-- Sidebar solo visible en móvil -->
+  <div class="sidebar">
+    <a href="#" >Productos</a>
+    <a href="#">Categorías</a>
+    <a href="#">Sucursales</a>
+    <button class="sidebar-login">Iniciar Sesión</button>
+  </div>
+
+  <section class="hero"></section>
+
+  <main>
+    <h1>Bienvenido a Huerto Hogar</h1>
+    <p>Aquí va el contenido principal de tu página...</p>
+    <!-- contenido repetido omitido por brevedad -->
+  </main>
+
+  <script src="static/script.js"></script>
+</body>
+</html>
