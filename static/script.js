@@ -132,5 +132,101 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
+document.addEventListener('DOMContentLoaded', function () {
+    // Para móviles: toggle de dropdown al hacer click
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
   
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault(); // Evita ir al enlace "categorias.html"
+        
+        const parentDropdown = this.parentElement;
+        const dropdownContent = parentDropdown.querySelector('.dropdown-content');
+  
+        // Cierra otros dropdowns si los hay
+        document.querySelectorAll('.dropdown-content').forEach(dc => {
+          if (dc !== dropdownContent) {
+            dc.classList.remove('show');
+          }
+        });
+  
+        // Alternar visibilidad del dropdown actual
+        dropdownContent.classList.toggle('show');
+      });
+    });
+  
+    // Cerrar el dropdown si se toca fuera
+    document.addEventListener('click', function (e) {
+      const isClickInside = e.target.closest('.dropdown');
+      if (!isClickInside) {
+        document.querySelectorAll('.dropdown-content').forEach(dc => {
+          dc.classList.remove('show');
+        });
+      }
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const userLink = document.querySelector('.user-link');
+    const loginModal = document.getElementById('loginModal');
+    const registerModal = document.getElementById('registerModal');
+    
+    // Botones para abrir/cerrar
+    const registerBtn = loginModal.querySelector('.btn-outline');
+    const loginReturnBtn = registerModal.querySelector('.switch-modal');
+
+    // Muestra u oculta la contraseña en el modal de login
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    // Muestra u oculta la contraseña en el modal de registro
+    const toggleRegPassword = document.getElementById('toggleRegPassword');
+    const regPasswordInput = document.getElementById('reg-password');
+    
+    if (userLink && loginModal && registerModal) {
+        // Abrir el modal de login
+        userLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.classList.add('active');
+        });
+
+        // Ocultar modal al hacer clic fuera
+        [loginModal, registerModal].forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Cambiar de modal: Login a Registro
+        if (registerBtn) {
+            registerBtn.addEventListener('click', () => {
+                loginModal.classList.remove('active');
+                registerModal.classList.add('active');
+            });
+        }
+        
+        // Cambiar de modal: Registro a Login
+        if (loginReturnBtn) {
+            loginReturnBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                registerModal.classList.remove('active');
+                loginModal.classList.add('active');
+            });
+        }
+
+        // Toggle para mostrar/ocultar contraseña
+        function setupPasswordToggle(toggleBtn, input) {
+            if (toggleBtn && input) {
+                toggleBtn.addEventListener('click', () => {
+                    const type = input.type === 'password' ? 'text' : 'password';
+                    input.type = type;
+                    toggleBtn.classList.toggle('fa-eye-slash');
+                });
+            }
+        }
+        setupPasswordToggle(togglePassword, passwordInput);
+        setupPasswordToggle(toggleRegPassword, regPasswordInput);
+    }
+});
