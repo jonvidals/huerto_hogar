@@ -66,32 +66,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginModal = document.getElementById('loginModal');
     const togglePassword = document.getElementById('togglePassword');
     const passwordInput = document.getElementById('password');
-  
+
     if (userLink && loginModal) {
-      // abrir modal
-      userLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        loginModal.classList.add('active');
-      });
-  
-      // cerrar modal al hacer clic fuera
-      loginModal.addEventListener('click', (e) => {
-        if (e.target === loginModal) {
-          loginModal.classList.remove('active');
-        }
-      });
-  
-      // toggle mostrar/ocultar contraseña
-      if (togglePassword && passwordInput) {
-        togglePassword.addEventListener('click', () => {
-          const type = passwordInput.type === 'password' ? 'text' : 'password';
-          passwordInput.type = type;
-          togglePassword.classList.toggle('fa-eye-slash');
+        // abrir modal
+        userLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.classList.add('active');
         });
-      }
+
+        // cerrar modal al hacer clic fuera
+        loginModal.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.classList.remove('active');
+            }
+        });
+
+        // toggle mostrar/ocultar contraseña
+        if (togglePassword && passwordInput) {
+            togglePassword.addEventListener('click', () => {
+                const type = passwordInput.type === 'password' ? 'text' : 'password';
+                passwordInput.type = type;
+                togglePassword.classList.toggle('fa-eye-slash');
+            });
+        }
     }
-  });
-  document.addEventListener("DOMContentLoaded", () => {
+});
+document.addEventListener("DOMContentLoaded", () => {
     const searchInputs = document.querySelectorAll('.search-input');
     const suggestionLists = document.querySelectorAll('.suggestions-list');
 
@@ -135,42 +135,42 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener('DOMContentLoaded', function () {
     // Para móviles: toggle de dropdown al hacer click
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-  
+
     dropdownToggles.forEach(toggle => {
-      toggle.addEventListener('click', function (e) {
-        e.preventDefault(); // Evita ir al enlace "categorias.html"
-        
-        const parentDropdown = this.parentElement;
-        const dropdownContent = parentDropdown.querySelector('.dropdown-content');
-  
-        // Cierra otros dropdowns si los hay
-        document.querySelectorAll('.dropdown-content').forEach(dc => {
-          if (dc !== dropdownContent) {
-            dc.classList.remove('show');
-          }
+        toggle.addEventListener('click', function (e) {
+            e.preventDefault(); // Evita ir al enlace "categorias.html"
+
+            const parentDropdown = this.parentElement;
+            const dropdownContent = parentDropdown.querySelector('.dropdown-content');
+
+            // Cierra otros dropdowns si los hay
+            document.querySelectorAll('.dropdown-content').forEach(dc => {
+                if (dc !== dropdownContent) {
+                    dc.classList.remove('show');
+                }
+            });
+
+            // Alternar visibilidad del dropdown actual
+            dropdownContent.classList.toggle('show');
         });
-  
-        // Alternar visibilidad del dropdown actual
-        dropdownContent.classList.toggle('show');
-      });
     });
-  
+
     // Cerrar el dropdown si se toca fuera
     document.addEventListener('click', function (e) {
-      const isClickInside = e.target.closest('.dropdown');
-      if (!isClickInside) {
-        document.querySelectorAll('.dropdown-content').forEach(dc => {
-          dc.classList.remove('show');
-        });
-      }
+        const isClickInside = e.target.closest('.dropdown');
+        if (!isClickInside) {
+            document.querySelectorAll('.dropdown-content').forEach(dc => {
+                dc.classList.remove('show');
+            });
+        }
     });
-  });
+});
 
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const userLink = document.querySelector('.user-link');
     const loginModal = document.getElementById('loginModal');
     const registerModal = document.getElementById('registerModal');
-    
+
     // Botones para abrir/cerrar
     const registerBtn = loginModal.querySelector('.btn-outline');
     const loginReturnBtn = registerModal.querySelector('.switch-modal');
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Muestra u oculta la contraseña en el modal de registro
     const toggleRegPassword = document.getElementById('toggleRegPassword');
     const regPasswordInput = document.getElementById('reg-password');
-    
+
     if (userLink && loginModal && registerModal) {
         // Abrir el modal de login
         userLink.addEventListener('click', (e) => {
@@ -206,8 +206,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 registerModal.classList.add('active');
             });
         }
-        
-        // Cambiar de modal: Registro a Login
         if (loginReturnBtn) {
             loginReturnBtn.addEventListener('click', (e) => {
                 e.preventDefault();

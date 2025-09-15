@@ -392,7 +392,7 @@ body.menu-open .sidebar {
 
 /* logout*/
 
-.logged .logout-btn {
+.logout-btn {
     display: block;
     width: 100%;
     
@@ -402,18 +402,17 @@ body.menu-open .sidebar {
     text-align: center;
 
     padding: 0.75rem 1rem;
-    background-color: #0fdb31; /* Color rojo para la acción de cerrar sesión */
+    background-color: #14e20d; 
     border-radius: 5px;
     border: none;
     cursor: pointer;
 
-    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    transform: translateY(1px);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-/* Estilo al pasar el mouse sobre el botón */
-#logout-btn:hover {
-    background-color: #c82333;
-}
+
 
 /* ==================== HERO ==================== */
 .hero {
@@ -1005,3 +1004,15 @@ footer {
   }
 
 }
+.logout-btn:active {
+    background-color: #0d8a11;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transform: translateY(2px);
+}
+
+.logged .sidebar {
+        position: fixed;
+        top: 79px;
+        width: 54%;
+        z-index: 1000;
+    }
