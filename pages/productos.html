@@ -1,45 +1,297 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Huerto Hogar</title>
+
+  <!-- Fuentes -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/5f1c718ed0.js" crossorigin="anonymous"></script>
+
+  <!-- Estilos -->
   <link rel="stylesheet" href="../static/style.css" />
 </head>
-<body>
-  <header class="banner transparent">
-    <div class="container">
-      <a href="../index.html"> <img class="logo" src="../templates/HuertoHogar.png" alt="Logo Huerto Hogar" />      </a>
-      
-      <!-- Botón hamburguesa solo visible en móvil -->
-      <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
 
-      <nav>
-        <a href="#"class="activo">Productos</a>
-        <a href="categorias.html">Categorías</a>
-        <a href="#">Sucursales</a>
-      </nav>
+<body class="prod">
+  <!-- HEADER / BANNER -->
+  <header class="banner">
+    <div class="top-bar">
+      <div class="container">
+        <div class="left-section">
+          <button class="menu-toggle" aria-label="Abrir menú">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+          <div class="search-group">
+            <button class="search-toggle" aria-label="Buscar">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                <path
+                  d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z" />
+              </svg>
+            </button>
+            <div class="search-box">
+              <form class="search-form">
+                <input type="text" class="search-input" placeholder="Buscar productos..." autocomplete="off">
+                <ul class="suggestions-list desktop-list"></ul>
+              </form>
 
-      <!-- Botón de login solo visible en desktop -->
-      <button class="btn-login">Iniciar Sesión</button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="logo-wrapper">
+          <a href="../index.html"><img class="logo" src="../templates/HuertoHogar.png" alt="Logo Huerto Hogar" /></a>
+        </div>
+
+        <div class="right-section">
+          <a href="#" class="user-link">
+            <span class="user-text">¡Hola! Ingresa o regístrate</span>
+            <i class="fa-regular fa-user" id="user"></i>
+          </a>
+
+          <p style="color: white">|</p>
+          <a id="carro" href="#"><i class="fa fa-shopping-cart"></i></a>
+        </div>
+      </div>
+
     </div>
-  </header>
 
-  <!-- Sidebar solo visible en móvil -->
-  <div class="sidebar">
-    <a href="#" >Productos</a>
-    <a href="#">Categorías</a>
-    <a href="#">Sucursales</a>
-    <button class="sidebar-login">Iniciar Sesión</button>
+    <nav class="secondary-nav">
+      <div class="dropdown">
+        <a href="#" class="activo">Productos</a>
+
+      </div>
+      <div class="dropdown">
+        <a href="categorias.html">Categorías <i class="fa-solid fa-caret-down"></i></a>
+        <div class="dropdown-content">
+          <a href="frutas-frescas.html">Frutas frescas</a>
+          <a href="productos-organicos.html">Productos orgánicos</a>
+          <a href="productos-lacteos.html">Productos lácteos</a>
+          <a href="verduras-organicas.html">Verduras orgánicas</a>
+        </div>
+      </div>
+      <a href="#">Sucursales</a>
+    </nav>
+  </header>
+  <!-- full screen oculto solo para responsivo-->
+  <div id="searchOverlay" class="search-overlay">
+    <button id="closeSearch" class="close-search" aria-label="Cerrar búsqueda">&times;</button>
+    <form class="search-form">
+      <input type="text" class="search-input" placeholder="Buscar productos..." autocomplete="off">
+      <ul class="suggestions-list mobile-list"></ul>
+    </form>
+
   </div>
 
-  <section class="hero"></section>
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <nav class="sidebar-nav">
+      <a href="productos.html">Productos</a>
+      <a href="categorias.html">Categorías</a>
+      <a href="#">Sucursales</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <span>Explora nuestros productos frescos y orgánicos</span>
+      <h1>Huerto Hogar te provee de lo que más necesitas</h1>
+      <p>Manten una vida saludable a raíz de nuestra selección para ti</p>
+
+    </div>
+  </section>
 
   <main>
-    <h1>Bienvenido a Huerto Hogar</h1>
-    <p>Aquí va el contenido principal de tu página...</p>
+    <section class="productos">
+      <h2>Nuestros Productos</h2>
+      <p>Disfruta de la mejor selección de alimentos saludables.</p>
+
+      <div class="cards">
+        <div class="card">
+          <img src="https://cdnx.jumpseller.com/lafamiliapuntocl/image/11224645/apple-805819_1280.png?1736783380"
+            alt="Manzana Fuji">
+          <h3>Manzanas Fuji 1kg</h3>
+          <p> $990 </p>
+          <button class="btn-add-cart">AÑADIR AL CARRITO</button>
+        </div>
+
+        <div class="card">
+          <img src="https://naranjasgloria.com/wp-content/uploads/2022/03/naranja-1076x705xc.png"
+            alt="Naranjas Valencia">
+          <h3>Naranjas Valencia 1kg</h3>
+          <p> $990 </p>
+          <button class="btn-add-cart">AÑADIR AL CARRITO</button>
+        </div>
+
+        <div class="card">
+          <img src="https://grupoacon.com/wp-content/uploads/2025/03/acon31.png" alt="Plátanos Cavendish">
+          <h3>Plátanos Cavendish 1kg</h3>
+          <p> $990 </p>
+          <button class="btn-add-cart">AÑADIR AL CARRITO</button>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/059/021/465/non_2x/fresh-organic-carrot-with-green-tops-isolated-on-black-background-free-png.png"
+            alt="Zanahoria Organicas">
+          <h3>Zanahorias Organicas</h3>
+          <p> $990 </p>
+          <button class="btn-add-cart">AÑADIR AL CARRITO</button>
+        </div>
+        <div class="card">
+          <img src="https://www.fondation-louisbonduelle.org/wp-content/uploads/2016/09/epinard-legume-transparant.png" alt="Espinacas Frescas">
+          <h3>Espinacas Frescas</h3>
+          <p> $990 </p>
+          <button class="btn-add-cart">AÑADIR AL CARRITO</button>
+        </div>
+
+        <div class="card">
+          <img src="https://png.pngtree.com/png-clipart/20201208/original/pngtree-three-cut-colored-peppers-and-slices-png-image_5508667.jpg"
+            alt="Pimientos Tricolores">
+          <h3>Pimientos Tricolores</h3>
+          <p> $990 </p>
+          <button class="btn-add-cart">AÑADIR AL CARRITO</button>
+        </div>
+
+        <div class="card">
+          <img src="https://santaisabel.vtexassets.com/arquivos/ids/169442/Miel-pura-de-abejas-Morelli-450-g.jpg?v=637517622678670000" alt="Miel Organica">
+          <h3>Miel Organica</h3>
+          <p> $990 </p>
+          <button class="btn-add-cart">AÑADIR AL CARRITO</button>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://santaisabel.vtexassets.com/arquivos/ids/156637/Leche-entera-Colun-200-ml.jpg?v=637469297081300000"
+            alt="Leche Entera">
+          <h3>hola jona</h3>
+          <p> $990 </p>
+          <button class="btn-add-cart">AÑADIR AL CARRITO</button>
+        </div>
+        <div class="card">
+          <img src="https://santaisabel.vtexassets.com/arquivos/ids/190987/Pera-Packam-s-granel.jpg?v=637814022903630000" alt="Peras Packham">
+          <h3>Peras Backham</h3>
+          <p> $990 </p>
+          <button class="btn-add-cart">AÑADIR AL CARRITO</button>
+        </div>
+
+        <div class="card">
+          <img src="https://www.agricolaandalucia.cl/images/gallery/uvas4.png"
+            alt="Uvas Red Globe">
+          <h3>Uvas Red Globe</h3>
+          <p> $990 </p>
+          <button class="btn-add-cart">AÑADIR AL CARRITO</button>
+        </div>
+
+        <div class="card">
+          <img src="https://agrogood.cl/wp-content/uploads/2023/05/42-600x600.png" alt="Tomates Cherry">
+          <h3>Tomates Cherry</h3>
+          <p> $990 </p>
+          <button class="btn-add-cart">AÑADIR AL CARRITO</button>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://png.pngtree.com/png-clipart/20210523/original/pngtree-west-blue-flower-organic-png-image_6329050.png"
+            alt="Brócoli Orgánico">
+          <h3>Brócoli Orgánico</h3>
+          <p> $990 </p>
+          <button class="btn-add-cart">AÑADIR AL CARRITO</button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="about">
+      <h2>Nuestra Historia</h2>
+      <p>Nuestra misión es proporcionar productos frescos y de calidad directamente desde el campo hasta la puerta
+        de nuestros clientes, garantizando la frescura y el sabor en cada entrega.</p>
+    </section>
   </main>
 
-  <script src="static/script.js"></script>
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Huerto Hogar - Todos los derechos reservados</p>
+  </footer>
+
+  <!--LOGIN / REGISTER MODAL-->
+  <div id="loginModal" class="login-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="login-box">
+      <div class="login-content">
+
+        <!-- Columna izquierda: imagen -->
+        <div class="login-image">
+          <img src="https://www.armony.cl/wp-content/uploads/2020/09/huerta_casera_2.jpg" alt="Imagen login">
+        </div>
+
+        <!-- Columna derecha: formulario -->
+        <div class="login-form">
+          <h2>Iniciar Sesión</h2>
+          <form action="pages/home.html">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Ingresa tu correo" required>
+
+            <label for="password">Contraseña</label>
+            <div class="password-wrapper">
+              <input type="password" id="password" placeholder="Mínimo 8 caracteres" required>
+              <i class="fa-regular fa-eye" id="togglePassword"></i>
+            </div>
+
+            <button type="submit" class="btn-primary">Iniciar Sesión</button>
+            <a href="#" class="forgot-link">Olvidé mi contraseña</a>
+
+            <div class="divider"></div>
+            <button type="button" class="btn-outline">Registrarme</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div id="registerModal" class="login-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="login-box">
+      <div class="login-content">
+        <div class="login-image">
+          <img src="https://www.armony.cl/wp-content/uploads/2020/09/huerta_casera_2.jpg" alt="Imagen registro">
+        </div>
+
+        <div class="login-form">
+          <h2>Crear Cuenta</h2>
+          <form action="pages/home.html">
+            <label for="reg-name">Nombre Completo</label>
+            <input type="text" id="reg-name" placeholder="Ingresa tu nombre" required>
+
+            <label for="reg-email">Email</label>
+            <input type="email" id="reg-email" placeholder="Ingresa tu correo" required>
+
+            <label for="reg-password">Contraseña</label>
+            <div class="password-wrapper">
+              <input type="password" id="reg-password" placeholder="Mínimo 8 caracteres" required>
+              <i class="fa-regular fa-eye" id="toggleRegPassword"></i>
+            </div>
+
+            <button type="submit" class="btn-primary">Registrarme</button>
+            <a href="#" class="forgot-link switch-modal" data-target="loginModal">Ya tengo una cuenta</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../static/script.js"></script>
+
 </body>
+
 </html>

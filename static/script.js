@@ -1,19 +1,47 @@
-// HERO IMAGES ROTATION
-const hero = document.querySelector('.hero');
-const images = [
-    'https://images.pexels.com/photos/574919/pexels-photo-574919.jpeg',
-    'https://images.pexels.com/photos/19162212/pexels-photo-19162212/free-photo-of-agricultura-granja-manzanas-fruta.jpeg',
-    'https://images.pexels.com/photos/18510514/pexels-photo-18510514/free-photo-of-comida-sano-naturaleza-rojo.jpeg'
-];
-let index = 0;
-function changeHero() {
-    index = (index + 1) % images.length;
-    hero.style.backgroundImage = `url('${images[index]}')`;
-}
-if (hero) {
-    hero.style.backgroundImage = `url('${images[0]}')`;
-    setInterval(changeHero, 5000);
-}
+// ===== HERO IMAGES ROTATION (multi-página) =====
+(() => {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    // Sets por página
+    const HERO_SETS = {
+        index: [
+            'https://images.pexels.com/photos/574919/pexels-photo-574919.jpeg',
+            'https://images.pexels.com/photos/19162212/pexels-photo-19162212/free-photo-of-agricultura-granja-manzanas-fruta.jpeg',
+            'https://images.pexels.com/photos/18510514/pexels-photo-18510514/free-photo-of-comida-sano-naturaleza-rojo.jpeg'
+        ],
+        logged: [
+            'https://images.pexels.com/photos/574919/pexels-photo-574919.jpeg',
+            'https://images.pexels.com/photos/19162212/pexels-photo-19162212/free-photo-of-agricultura-granja-manzanas-fruta.jpeg',
+            'https://images.pexels.com/photos/18510514/pexels-photo-18510514/free-photo-of-comida-sano-naturaleza-rojo.jpeg'
+        ],
+        prod: [
+            'https://c.pxhere.com/photos/f7/ce/apple_fruits_fruit_harvest_time_frisch_harvest_yield_fuji-1054761.jpg!d',
+            'https://upload.wikimedia.org/wikipedia/commons/9/93/Produci%C3%B3n_de_C%C3%ADtricos_en_Veinticinco_de_Diciembre.jpg',
+            'https://static.eldiario.es/clip/607dea5a-1c91-42bd-859b-43600699c34f_16-9-discover-aspect-ratio_default_0.jpg'
+        ]
+    };
+
+    const dataKey = (document.body.dataset.page || '').toLowerCase();
+    const classKey = Object.keys(HERO_SETS).find(k => document.body.classList.contains(k));
+    const pageKey = dataKey || classKey || 'index';
+
+    const images = HERO_SETS[pageKey] || HERO_SETS.index;
+
+    const interval = Number(document.body.dataset.heroInterval) || 5000;
+
+    let idx = 0;
+    const applyBg = () => hero.style.backgroundImage = `url('${images[idx]}')`;
+
+    applyBg();
+    if (images.length > 1) {
+        setInterval(() => {
+            idx = (idx + 1) % images.length;
+            applyBg();
+        }, interval);
+    }
+})();
+
 
 // MENU TOGGLE Y SCROLL
 document.addEventListener("DOMContentLoaded", () => {
@@ -117,7 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
             list.style.display = filtered.length ? 'block' : 'none';
         });
 
-        // Selección de sugerencia
         list.addEventListener('click', (e) => {
             if (e.target.tagName.toLowerCase() === 'li') {
                 input.value = e.target.textContent;
@@ -126,31 +153,27 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Ocultar al perder el foco
         input.addEventListener('blur', () => {
             setTimeout(() => list.style.display = 'none', 150);
         });
     });
 });
 document.addEventListener('DOMContentLoaded', function () {
-    // Para móviles: toggle de dropdown al hacer click
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
     dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', function (e) {
-            e.preventDefault(); // Evita ir al enlace "categorias.html"
+            e.preventDefault();
 
             const parentDropdown = this.parentElement;
             const dropdownContent = parentDropdown.querySelector('.dropdown-content');
 
-            // Cierra otros dropdowns si los hay
             document.querySelectorAll('.dropdown-content').forEach(dc => {
                 if (dc !== dropdownContent) {
                     dc.classList.remove('show');
                 }
             });
 
-            // Alternar visibilidad del dropdown actual
             dropdownContent.classList.toggle('show');
         });
     });
@@ -171,15 +194,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginModal = document.getElementById('loginModal');
     const registerModal = document.getElementById('registerModal');
 
-    // Botones para abrir/cerrar
     const registerBtn = loginModal.querySelector('.btn-outline');
     const loginReturnBtn = registerModal.querySelector('.switch-modal');
 
-    // Muestra u oculta la contraseña en el modal de login
     const togglePassword = document.getElementById('togglePassword');
     const passwordInput = document.getElementById('password');
 
-    // Muestra u oculta la contraseña en el modal de registro
     const toggleRegPassword = document.getElementById('toggleRegPassword');
     const regPasswordInput = document.getElementById('reg-password');
 
