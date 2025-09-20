@@ -557,7 +557,7 @@ body.menu-open .sidebar {
   color: #555;
 }
 
-/* Contenedor en grid */
+/* cuadricula de productos */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -581,15 +581,18 @@ body.menu-open .sidebar {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Imagen arriba */
 .card img {
   width: 100%;
   height: 200px;
-  object-fit: contain; /* evita recorte, como en tu imagen de ejemplo */
+  object-fit: contain; 
   margin-bottom: 15px;
+  transition: transform 0.3s ease
 }
 
-/* Nombre producto */
+.card:hover img{
+  transform: scale(1.12);
+}
+
 .card h3 {
   font-family: "Inter", sans-serif;
   font-size: 1.1rem;
@@ -598,7 +601,6 @@ body.menu-open .sidebar {
   text-align: center;
 }
 
-/* Botón */
 .btn-add-cart {
   background-color: #3dae2b;
   color: white;
