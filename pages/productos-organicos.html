@@ -5,8 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Frutas Frescas</title>
-
-    <!-- Fuentes -->
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet" />
@@ -14,8 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/5f1c718ed0.js" crossorigin="anonymous"></script>
-
-    <!-- Estilos -->
     <link rel="stylesheet" href="../static/style.css" />
 </head>
 
@@ -44,34 +40,26 @@
                                     autocomplete="off">
                                 <ul class="suggestions-list desktop-list"></ul>
                             </form>
-
                         </div>
                     </div>
                 </div>
-
-
                 <div class="logo-wrapper">
                     <a href="../index.html"><img class="logo" src="../templates/HuertoHogar.png"
                             alt="Logo Huerto Hogar" /></a>
                 </div>
-
                 <div class="right-section">
                     <a href="#" class="user-link">
                         <span class="user-text">¡Hola! Ingresa o regístrate</span>
                         <i class="fa-regular fa-user" id="user"></i>
                     </a>
-
                     <p style="color: white">|</p>
                     <a id="carro" href="#"><i class="fa fa-shopping-cart"></i></a>
                 </div>
             </div>
-
         </div>
-
         <nav class="secondary-nav">
             <div class="dropdown">
-                <a href="#" class="activo">Productos</a>
-
+                <a href="productos.html" class="activo">Productos</a>
             </div>
             <div class="dropdown">
                 <a href="categorias.html">Categorías <i class="fa-solid fa-caret-down"></i></a>
@@ -85,16 +73,13 @@
             <a href="#">Sucursales</a>
         </nav>
     </header>
-    <!-- full screen oculto solo para responsivo-->
     <div id="searchOverlay" class="search-overlay">
         <button id="closeSearch" class="close-search" aria-label="Cerrar búsqueda">&times;</button>
         <form class="search-form">
             <input type="text" class="search-input" placeholder="Buscar productos..." autocomplete="off">
             <ul class="suggestions-list mobile-list"></ul>
         </form>
-
     </div>
-
     <!-- SIDEBAR -->
     <div class="sidebar">
         <nav class="sidebar-nav">
@@ -103,22 +88,18 @@
             <a href="#">Sucursales</a>
         </nav>
     </div>
-
     <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
             <span>Frutas frescas para ti</span>
             <h1>Huerto Hogar te provee de lo que más necesitas</h1>
             <p>Manten una vida saludable a raíz de nuestra selección para ti</p>
-
         </div>
     </section>
-
     <main>
         <section class="productos">
             <h2>Productos Orgánicos</h2>
             <p>Seleccionamos lo mejor de la tierra para ti.</p>
-
             <div class="cards">
                 <div class="card">
                     <img src="https://static.vecteezy.com/system/resources/previews/059/021/465/non_2x/fresh-organic-carrot-with-green-tops-isolated-on-black-background-free-png.png"
@@ -128,7 +109,6 @@
                     <p> $990 </p>
                     <button class="btn-add-cart">AÑADIR AL CARRITO</button>
                 </div>
-
                 <div class="card">
                     <img src="https://www.fondation-louisbonduelle.org/wp-content/uploads/2016/09/epinard-legume-transparant.png"
                         alt="Espinacas Frescas">
@@ -137,7 +117,6 @@
                     <p> $990 </p>
                     <button class="btn-add-cart">AÑADIR AL CARRITO</button>
                 </div>
-
                 <div class="card">
                     <img src="https://png.pngtree.com/png-clipart/20201208/original/pngtree-three-cut-colored-peppers-and-slices-png-image_5508667.jpg"
                         alt="Pimientos Tricolores">
@@ -146,7 +125,6 @@
                     <p> $990 </p>
                     <button class="btn-add-cart">AÑADIR AL CARRITO</button>
                 </div>
-
                 <div class="card">
                     <img src="https://santaisabel.vtexassets.com/arquivos/ids/169442/Miel-pura-de-abejas-Morelli-450-g.jpg?v=637517622678670000"
                         alt="Miel Orgánica">
@@ -155,7 +133,6 @@
                     <p> $990 </p>
                     <button class="btn-add-cart">AÑADIR AL CARRITO</button>
                 </div>
-
                 <div class="card">
                     <img src="https://png.pngtree.com/png-clipart/20210523/original/pngtree-west-blue-flower-organic-png-image_6329050.png"
                         alt="Brócoli Orgánico">
@@ -166,9 +143,6 @@
                 </div>
             </div>
         </section>
-
-
-
         <section class="about">
             <h2>Nuestra Historia</h2>
             <p>Nuestra misión es proporcionar productos frescos y de calidad directamente desde el campo hasta la puerta
@@ -211,7 +185,6 @@
                         <button type="button" class="btn-outline">Registrarme</button>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
@@ -222,22 +195,18 @@
                     <img src="https://www.armony.cl/wp-content/uploads/2020/09/huerta_casera_2.jpg"
                         alt="Imagen registro">
                 </div>
-
                 <div class="login-form">
                     <h2>Crear Cuenta</h2>
                     <form action="pages/home.html">
                         <label for="reg-name">Nombre Completo</label>
                         <input type="text" id="reg-name" placeholder="Ingresa tu nombre" required>
-
                         <label for="reg-email">Email</label>
                         <input type="email" id="reg-email" placeholder="Ingresa tu correo" required>
-
                         <label for="reg-password">Contraseña</label>
                         <div class="password-wrapper">
                             <input type="password" id="reg-password" placeholder="Mínimo 8 caracteres" required>
                             <i class="fa-regular fa-eye" id="toggleRegPassword"></i>
                         </div>
-
                         <button type="submit" class="btn-primary">Registrarme</button>
                         <a href="#" class="forgot-link switch-modal" data-target="loginModal">Ya tengo una cuenta</a>
                     </form>
@@ -245,8 +214,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Scripts -->
     <script src="../static/script.js"></script>
 
 </body>

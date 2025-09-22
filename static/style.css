@@ -278,7 +278,7 @@ nav a:hover::after {
   width: clamp(200px, 26vw, 320px);
   opacity: 1;
   pointer-events: auto;
-  overflow: visible; /* <--- Esto permite que la lista se vea */
+  overflow: visible; 
 }
 .search-box form {
   display: flex;
@@ -832,7 +832,7 @@ footer {
   z-index: 9999;
   max-height: 250px;
   overflow-y: auto;
-  display: none; /* por defecto oculto */
+  display: none; 
 }
 
 .suggestions-list li {
@@ -865,9 +865,9 @@ footer {
   height: 100vh;
   background: rgba(0, 0, 0, 0.95);
   flex-direction: column;
-  justify-content: flex-start; /* input arriba */
+  justify-content: flex-start; 
   align-items: center;
-  padding-top: 60px; /* espacio desde arriba */
+  padding-top: 60px; 
   z-index: 2000;
 }
 
@@ -875,11 +875,10 @@ footer {
   display: flex;
 }
 
-/* Botón de cerrar */
 .close-search {
   position: absolute;
-  top: 10px;     /* un poco desde arriba */
-  right: 10px;   /* dentro del formulario */
+  top: 10px;    
+  right: 10px;   
   font-size: 2.5rem;
   background: none;
   border: none;
@@ -891,15 +890,15 @@ footer {
 /* Formulario */
 #searchOverlay .search-form {
   position: relative;
-  width: 86%;              /* ancho relativo a la pantalla */
+  width: 86%;            
   max-width: 600px;
-  margin: 0 auto;          /* centrado horizontal */
+  margin: 0 auto;         
   border-radius: 12px;
   background: #fff;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* sombra suave */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Input de búsqueda */
@@ -921,9 +920,9 @@ footer {
 
 /* Lista de sugerencias */
 #searchOverlay .suggestions-list {
-  width: 100%;              /* mismo ancho que el formulario */
+  width: 100%;              
   max-width: 400px;
-  margin: 10px auto 0 auto; /* alineada debajo del input */
+  margin: 10px auto 0 auto; 
   max-height: calc(100vh - 200px);
   overflow-y: auto;
   border-radius: 12px;
@@ -946,7 +945,6 @@ footer {
 }
 
   .hero {
-
       width: 100vw;
       height: 100vh;
     

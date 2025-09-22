@@ -177,8 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dropdownContent.classList.toggle('show');
         });
     });
-
-    // Cerrar el dropdown si se toca fuera
+    // Cerrar el dropdown
     document.addEventListener('click', function (e) {
         const isClickInside = e.target.closest('.dropdown');
         if (!isClickInside) {
@@ -209,7 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             loginModal.classList.add('active');
         });
-
         // Ocultar modal al hacer clic fuera
         [loginModal, registerModal].forEach(modal => {
             modal.addEventListener('click', (e) => {
