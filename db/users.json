@@ -1,0 +1,35 @@
+[
+    {
+      "id": 1,
+      "nombre": "Juan",
+      "apellido": "Pérez",
+      "email": "juan.perez@example.com",
+      "password": "miPassword123",
+      "rol": "admin"
+    },
+    {
+      "id": 2,
+      "nombre": "María",
+      "apellido": "Gómez",
+      "email": "maria.gomez@example.com",
+      "password": "claveSegura456",
+      "rol": "usuario"
+    },
+    {
+      "id": 3,
+      "nombre": "Carlos",
+      "apellido": "Ramírez",
+      "email": "carlos.ramirez@example.com",
+      "password": "contraseña789",
+      "rol": "usuario"
+    },
+    {
+      "id": 4,
+      "nombre": "Ana",
+      "apellido": "López",
+      "email": "ana.lopez@example.com",
+      "password": "passAna2025",
+      "rol": "usuario"
+    }
+  ]
+  
