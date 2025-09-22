@@ -247,29 +247,70 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const contenedorProductos = document.querySelector('.cards');
+// Función que muestra los productos en las tarjetas
+function mostrarProductos(productos) {
+    const contenedor = document.querySelector('.cards');
+    contenedor.innerHTML = '';  // Limpiamos el contenedor antes de agregar nuevos productos
 
-    fetch('../db/productos.json')
-        .then(response => {
-            if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
-            return response.json();
-        })
+    productos.forEach(prod => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = `
+        <img src="${prod.imagen}" alt="${prod.nombre}">
+        <h3>${prod.nombre}</h3>
+        <p>Stock: ${prod.stock}</p>
+        <p>$${prod.precio}</p>
+        <button>AÑADIR AL CARRITO</button>`;
+        contenedor.appendChild(card);
+    });
+}
+
+// Función para cargar productos por categoría y subcategoría
+function cargarProductosPorCategoriaYSUB(categoria, subcategoria = 'todos') {
+    const rutaJSON = '../db/productos.json';  // Asegúrate de que la ruta sea correcta
+    fetch(rutaJSON)
+        .then(response => response.json())
         .then(productos => {
-            productos.forEach(producto => {
-                const tarjeta = document.createElement('div');
-                tarjeta.classList.add('card');
-                tarjeta.innerHTML = `
-                    <img src="${producto.imagen}" alt="${producto.nombre}">
-                    <h3>${producto.nombre}</h3>
-                    <p>Stock: ${producto.stock}</p>
-                    <p>$${producto.precio}</p>
-                    <button class="btn-add-cart">AÑADIR AL CARRITO</button>`;
-                contenedorProductos.appendChild(tarjeta);
-            });
+            // Filtramos por categoría y subcategoría
+            const productosFiltrados = productos.filter(producto =>
+                producto.categoria.toLowerCase() === categoria.toLowerCase() &&
+                (producto.subcategoria.toLowerCase() === subcategoria.toLowerCase() || subcategoria === 'todos')
+            );
+            mostrarProductos(productosFiltrados);
         })
-        .catch(error => {
-            console.error('Error al cargar productos:', error);
-        });
-});
+        .catch(error => console.log("Error al cargar los productos", error));
+}
+
+function cargarTodosLosProductos() {
+    const rutaJSON = '../db/productos.json';  
+    fetch(rutaJSON)
+        .then(response => response.json())
+        .then(productos => {
+            mostrarProductos(productos);  
+        })
+        .catch(error => console.log("Error al cargar los productos", error));
+}
+
+const path = window.location.pathname;
+let categoria = '';
+let subcategoria = 'todos';  
+
+if (path.includes('frutas-frescas')) {
+    categoria = 'frutas frescas';
+} else if (path.includes('productos-lacteos')) {
+    categoria = 'productos lacteos';
+} else if (path.includes('verduras-organicas')) {
+    categoria = 'verduras organicas';
+} else if (path.includes('productos-organicos')) {
+    categoria = 'productos organicos';
+} else if (path.includes('productos.html')) { 
+    categoria = 'todos';  
+}
+
+if (categoria !== 'todos') {
+    
+    cargarProductosPorCategoriaYSUB(categoria, subcategoria);
+} else if (categoria === 'todos') {  
+    cargarTodosLosProductos();
+}
 
