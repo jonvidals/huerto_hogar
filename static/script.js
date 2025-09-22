@@ -246,3 +246,30 @@ document.addEventListener("DOMContentLoaded", () => {
         setupPasswordToggle(toggleRegPassword, regPasswordInput);
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const contenedorProductos = document.querySelector('.cards');
+
+    fetch('../db/productos.json')
+        .then(response => {
+            if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
+            return response.json();
+        })
+        .then(productos => {
+            productos.forEach(producto => {
+                const tarjeta = document.createElement('div');
+                tarjeta.classList.add('card');
+                tarjeta.innerHTML = `
+                    <img src="${producto.imagen}" alt="${producto.nombre}">
+                    <h3>${producto.nombre}</h3>
+                    <p>Stock: ${producto.stock}</p>
+                    <p>$${producto.precio}</p>
+                    <button class="btn-add-cart">AÑADIR AL CARRITO</button>`;
+                contenedorProductos.appendChild(tarjeta);
+            });
+        })
+        .catch(error => {
+            console.error('Error al cargar productos:', error);
+        });
+});
+
