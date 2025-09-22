@@ -1,0 +1,123 @@
+[
+    {
+        "nombre": "Manzanas Fuji 1kg",
+        "precio": 990,
+        "stock": 99,
+        "imagen": "https://cdnx.jumpseller.com/lafamiliapuntocl/image/11224645/apple-805819_1280.png?1736783380",
+        "categoria": "frutas frescas",
+        "subcategoria": "todos"
+    },
+    {
+        "nombre": "Naranjas Valencia 1kg",
+        "precio": 990,
+        "stock": 99,
+        "imagen": "https://sicarfarms.com/wp-content/uploads/2021/01/Naranja.png",
+        "categoria": "frutas frescas"
+    },
+    {
+        "nombre": "Plátanos Cavendish 1kg",
+        "precio": 990,
+        "stock": 99,
+        "imagen": "https://grupoacon.com/wp-content/uploads/2025/03/acon31.png",
+        "categoria": "frutas frescas"
+    },
+    {
+        "nombre": "Zanahorias Orgánicas",
+        "precio": 990,
+        "stock": 99,
+        "imagen": "https://static.vecteezy.com/system/resources/previews/059/021/465/non_2x/fresh-organic-carrot-with-green-tops-isolated-on-black-background-free-png.png",
+        "categoria": "verduras organicas"
+    },
+    {
+        "nombre": "Peras Backham",
+        "precio": 1250,
+        "stock": 150,
+        "imagen": "https://santaisabel.vtexassets.com/arquivos/ids/190987/Pera-Packam-s-granel.jpg?v=637814022903630000",
+        "categoria": "frutas frescas"
+    },
+    {
+        "nombre": "Uvas Red Globe",
+        "precio": 1050,
+        "stock": 120,
+        "imagen": "https://www.agricolaandalucia.cl/images/gallery/uvas4.png",
+        "categoria": "frutas frescas"
+    },
+    {
+        "nombre": "Tomates Cherry",
+        "precio": 850,
+        "stock": 99,
+        "imagen": "https://agrogood.cl/wp-content/uploads/2023/05/42-600x600.png",
+        "categoria": "verduras organicas"
+    },
+    {
+        "nombre": "Pimientos Tricolores",
+        "precio": 790,
+        "stock": 120,
+        "imagen": "https://png.pngtree.com/png-clipart/20201208/original/pngtree-three-cut-colored-peppers-and-slices-png-image_5508667.jpg",
+        "categoria": "verduras organicas"
+    },
+    {
+        "nombre": "Leche Entera Larga Vida 1L",
+        "precio": 650,
+        "stock": 100,
+        "imagen": "https://santaisabel.vtexassets.com/arquivos/ids/295371/Leche-entera-1-L.jpg?v=638240207839630000",
+        "categoria": "productos lacteos",
+        "subcategoria": "leche"
+    },
+    {
+        "nombre": "Yogur Natural 1kg",
+        "precio": 1200,
+        "stock": 80,
+        "imagen": "https://i.bolder.run/r/czozNjY2LGc6MTAwMHg/8edd5d2c/581521-C2242532.png",
+        "categoria": "productos lacteos",
+        "subcategoria": "yogur"
+    },
+    {
+        "nombre": "Queso Cheddar 500g",
+        "precio": 2200,
+        "stock": 50,
+        "imagen": "https://www.president.cl/wp-content/uploads/2022/01/8945-FUNDIDO-PROCESADO-LAMINADO-CHEDDAR-120G.-PRESIDENT.png",
+        "categoria": "productos lacteos",
+        "subcategoria": "queso"
+    },
+    {
+        "nombre": "Mantequilla Orgánica 250g",
+        "precio": 980,
+        "stock": 75,
+        "imagen": "https://manare.cl/wp-content/uploads/2023/09/Manare_MantequilladeMani_CremosaOrganica360g.png",
+        "categoria": "productos organicos",
+        "subcategoria": "mantequilla"
+    },
+    {
+        "nombre": "Miel Orgánica 500g",
+        "precio": 500,
+        "stock": 100,
+        "imagen": "https://manare.cl/wp-content/uploads/2023/09/Manare_MieldeUlmoOrgCruda500g.png",
+        "categoria": "productos organicos",
+        "subcategoria": "miel"
+    },
+    {
+        "nombre": "Aceite de Oliva Orgánico 1L",
+        "precio": 1500,
+        "stock": 60,
+        "imagen": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/spt/spt06200/l/8.jpg",
+        "categoria": "productos organicos",
+        "subcategoria": "aceite"
+    },
+    {
+        "nombre": "Acelga Orgánica",
+        "precio": 650,
+        "stock": 80,
+        "imagen": "https://santiagonativo.cl/cdn/shop/products/ingrediente-acelga_grande.jpg?v=1645813914",
+        "categoria": "verduras organicas",
+        "subcategoria": "verduras"
+    },
+    {
+        "nombre": "Kefir de Leche 500ml",
+        "precio": 450,
+        "stock": 120,
+        "imagen": "https://www.gretamarket.com/cdn/shop/files/Captura_de_pantalla_2025-04-25_165846.png?v=1745618343",
+        "categoria": "productos lacteos",
+        "subcategoria": "kefir"
+    }
+]
