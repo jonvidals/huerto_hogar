@@ -260,18 +260,16 @@ function mostrarProductos(productos) {
         <h3>${prod.nombre}</h3>
         <p>Stock: ${prod.stock}</p>
         <p>$${prod.precio}</p>
-        <button>AÑADIR AL CARRITO</button>`;
+        <button class="btn-add-cart">AÑADIR AL CARRITO</button>`;
         contenedor.appendChild(card);
     });
 }
 
-// Función para cargar productos por categoría y subcategoría
 function cargarProductosPorCategoriaYSUB(categoria, subcategoria = 'todos') {
-    const rutaJSON = '../db/productos.json';  // Asegúrate de que la ruta sea correcta
+    const rutaJSON = '../db/productos.json';  
     fetch(rutaJSON)
         .then(response => response.json())
         .then(productos => {
-            // Filtramos por categoría y subcategoría
             const productosFiltrados = productos.filter(producto =>
                 producto.categoria.toLowerCase() === categoria.toLowerCase() &&
                 (producto.subcategoria.toLowerCase() === subcategoria.toLowerCase() || subcategoria === 'todos')
