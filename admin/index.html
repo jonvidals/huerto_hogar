@@ -1,137 +1,107 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Huerto Hogar - Home</title>
-
-    <!-- Fuentes -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huerto Hogar - Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5f1c718ed0.js" crossorigin="anonymous"></script>
-
-    <!-- Estilos -->
-    <link rel="stylesheet" href="../static/style.css" />
+    <link rel="stylesheet" href="../static/admin-style.css">
 </head>
+<body class="admin-home">
 
-<body class="logged">
-    <!-- HEADER / BANNER -->
-    <header class="banner">
-        <div class="top-bar">
-            <div class="container">
-                <div class="left-section">
-                    <button class="menu-toggle" aria-label="Abrir menú">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                    <div class="search-group">
-                        <button class="search-toggle" aria-label="Buscar">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                                <path
-                                    d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z" />
-                            </svg>
-                        </button>
-                        <div class="search-box">
-                            <form class="search-form">
-                                <input type="text" class="search-input" placeholder="Buscar productos..." autocomplete="off">
-                                <ul class="suggestions-list desktop-list"></ul>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+<!-- HEADER -->
+<header class="admin-header">
+    <div class="logo-wrapper">
+        <a href="home.html"><img src="../templates/HuertoHogar.png" alt="Logo Huerto Hogar"></a>
+    </div>
+    <div class="admin-user">
+        <span>¡Hola, Admin!</span>
+        <button id="logoutBtn" class="btn-logout">Cerrar sesión</button>
+    </div>
+</header>
 
-                <div class="logo-wrapper">
-                    <a href="#"><img class="logo" src="../templates/HuertoHogar.png"
-                            alt="Logo Huerto Hogar" /></a>
-                </div>
+<!-- SIDEBAR -->
+<aside class="admin-sidebar">
+    <div class="sidebar-toggle" id="toggleSidebar">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <nav class="sidebar-nav">
+        <a href="#" class="active"><i class="fa-solid fa-gauge"></i> <span>Dashboard</span></a>
+        <a href="#"><i class="fa-solid fa-box"></i> <span>Productos</span></a>
+        <a href="#"><i class="fa-solid fa-list"></i> <span>Categorías</span></a>
+        <a href="#"><i class="fa-solid fa-receipt"></i> <span>Pedidos</span></a>
+        <a href="#"><i class="fa-solid fa-users"></i> <span>Usuarios</span></a>
+    </nav>
+</aside>
 
-                <div class="right-section">                    
-                    <a href="#" class="user-link">
-                        <span class="user-text">¡Hola, [Usuario]!</span>
-                        <i class="fa-regular fa-user" id="user"></i>
-                    </a>
+<!-- MAIN -->
+<main class="admin-main">
+    <section class="dashboard-hero">
+        <h1>Bienvenido al Panel de Administración</h1>
+        <p>Gestiona productos, pedidos y usuarios desde un solo lugar.</p>
+    </section>
 
-                    <p class="raya" style="color: white">|</p>
-                    <a id="carro" href="#"><i class="fa fa-shopping-cart"></i></a>
-                    <p class="raya" style="color: white">|</p>
-
-                    <div class="logout">
-                        
-                    <a href="../index.html" class="logout-link">
-                        Cerrar sesión
-                    </a>
-                    </div>
-                </div>
-            </div>
-            
+    <section class="dashboard-cards">
+        <div class="card">
+            <i class="fa-solid fa-box"></i>
+            <h3>Productos</h3>
+            <p>120 activos</p>
         </div>
-
-        <nav class="secondary-nav">
-            <div class="dropdown">
-                <a href="productos.html" class="dropbtn">Productos</a>
-            </div>
-            <div class="dropdown">
-                <a href="categorias.html">Categorías <i class="fa-solid fa-caret-down"></i></a>
-                <div class="dropdown-content">
-                    <a href="frutas-frescas.html">Frutas frescas</a>
-                    <a href="productos-organicos.html">Productos orgánicos</a>
-                    <a href="productos-lacteos.html">Productos lácteos</a>
-                    <a href="verduras-organicas.html">Verduras organicas</a>
-                </div>
-            </div>
-            <a href="#">Sucursales</a>
-        </nav>
-    </header>
-
-    <!-- full screen oculto solo para responsivo-->
-    <div id="searchOverlay" class="search-overlay">
-        <button id="closeSearch" class="close-search" aria-label="Cerrar búsqueda">&times;</button>
-        <form class="search-form">
-            <input type="text" class="search-input" placeholder="Buscar productos..." autocomplete="off">
-            <ul class="suggestions-list mobile-list"></ul>
-        </form>
-    </div>
-
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-        <nav class="sidebar-nav">
-            <a href="productos.html">Productos</a>
-            <a href="categorias.html">Categorías</a>
-            <a href="#">Sucursales</a>
-            <a id="logout-btn" href="../index.html">Cerrar sesión</a>
-            
-        </nav>
-    </div>
-
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-content">
-            <span>Bienvenido a tu espacio verde</span>
-            <h1>Cultiva en casa alimentos frescos y saludables</h1>
-            <p>Con Huerto Hogar podrás sembrar, cuidar y disfrutar de tus propios productos orgánicos.</p>
-            <a href="productos.html" class="btn">Explorar productos</a>
+        <div class="card">
+            <i class="fa-solid fa-receipt"></i>
+            <h3>Pedidos</h3>
+            <p>35 pendientes</p>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-users"></i>
+            <h3>Usuarios</h3>
+            <p>450 registrados</p>
         </div>
     </section>
 
-    <!-- MAIN -->
-    <main>
-        
-    </main>
+    <section class="dashboard-tables">
+        <h2>Últimos Pedidos</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Pedido</th>
+                        <th>Usuario</th>
+                        <th>Estado</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#001</td>
+                        <td>Juan Pérez</td>
+                        <td>En proceso</td>
+                        <td>$45.000</td>
+                    </tr>
+                    <tr>
+                        <td>#002</td>
+                        <td>María Gómez</td>
+                        <td>Enviado</td>
+                        <td>$72.500</td>
+                    </tr>
+                    <tr>
+                        <td>#003</td>
+                        <td>Carlos Díaz</td>
+                        <td>Cancelado</td>
+                        <td>$0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2025 Huerto Hogar - Todos los derechos reservados</p>
-    </footer>
+<!-- FOOTER -->
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+<script src="script.js">
+ 
+</script>
+
 </body>
-
 </html>

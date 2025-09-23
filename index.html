@@ -65,8 +65,9 @@
                     <a id="carro" href="#"><i class="fa fa-shopping-cart"></i></a>
                 </div>
             </div>
-            
+
         </div>
+
 
         <nav class="secondary-nav">
             <div class="dropdown">
@@ -82,7 +83,7 @@
                     <a href="pages/verduras-organicas.html">Verduras orgánicas</a>
                 </div>
             </div>
-            <a href="#">Sucursales</a>
+            <a href="#sucursales">Sucursales</a>
         </nav>
     </header>
     <!-- full screen oculto solo para responsivo-->
@@ -99,7 +100,17 @@
     <div class="sidebar">
         <nav class="sidebar-nav">
             <a href="pages/productos.html">Productos</a>
-            <a href="pages/categorias.html">Categorías</a>
+
+            <div class="sidebar-dropdown">
+                <button class="sidebar-dropbtn">Categorías <i class="fa-solid fa-caret-down"></i></button>
+                <div class="sidebar-dropdown-content">
+                    <a href="pages/frutas-frescas.html">Frutas frescas</a>
+                    <a href="pages/productos-organicos.html">Productos orgánicos</a>
+                    <a href="pages/productos-lacteos.html">Productos lácteos</a>
+                    <a href="pages/verduras-organicas.html">Verduras orgánicas</a>
+                </div>
+            </div>
+
             <a href="#">Sucursales</a>
         </nav>
     </div>
@@ -114,8 +125,28 @@
         </div>
     </section>
 
+    <!-- SUCURSALES -->
+    <section class="sucursales" id="sucursales">
+        <h2>Nuestras Sucursales</h2>
+        <p>Encuentra tu Huerto Hogar más cercano:</p>
+        <div id="map" style="width: 100%; height: 400px;"></div>
+    </section>
 
-    <!-- FOOTER -->
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <script>
+        const map = L.map('map').setView([-33.45, -70.65], 13); // Santiago, Chile
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19
+        }).addTo(map);
+
+        // Marcador
+        L.marker([-33.45, -70.65]).addTo(map)
+            .bindPopup('Sucursal Huerto Hogar')
+            .openPopup();
+    </script>
     <footer>
         <p>&copy; 2025 Huerto Hogar - Todos los derechos reservados</p>
     </footer>

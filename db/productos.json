@@ -12,49 +12,56 @@
         "precio": 990,
         "stock": 99,
         "imagen": "https://sicarfarms.com/wp-content/uploads/2021/01/Naranja.png",
-        "categoria": "frutas frescas"
+        "categoria": "frutas frescas",
+        "subcategoria": "todos"
     },
     {
         "nombre": "Plátanos Cavendish 1kg",
         "precio": 990,
         "stock": 99,
         "imagen": "https://grupoacon.com/wp-content/uploads/2025/03/acon31.png",
-        "categoria": "frutas frescas"
+        "categoria": "frutas frescas",
+        "subcategoria": "todos"
     },
     {
         "nombre": "Zanahorias Orgánicas",
         "precio": 990,
         "stock": 99,
         "imagen": "https://static.vecteezy.com/system/resources/previews/059/021/465/non_2x/fresh-organic-carrot-with-green-tops-isolated-on-black-background-free-png.png",
-        "categoria": "verduras organicas"
+        "categoria": "verduras organicas",
+        "subcategoria": "todos"
     },
     {
         "nombre": "Peras Backham",
         "precio": 1250,
         "stock": 150,
         "imagen": "https://santaisabel.vtexassets.com/arquivos/ids/190987/Pera-Packam-s-granel.jpg?v=637814022903630000",
-        "categoria": "frutas frescas"
+        "categoria": "frutas frescas",
+        "subcategoria": "todos"
     },
     {
         "nombre": "Uvas Red Globe",
         "precio": 1050,
         "stock": 120,
         "imagen": "https://www.agricolaandalucia.cl/images/gallery/uvas4.png",
-        "categoria": "frutas frescas"
+        "categoria": "frutas frescas",
+        "subcategoria": "todos"
     },
     {
         "nombre": "Tomates Cherry",
         "precio": 850,
         "stock": 99,
         "imagen": "https://agrogood.cl/wp-content/uploads/2023/05/42-600x600.png",
-        "categoria": "verduras organicas"
+        "categoria": "verduras organicas",
+        "subcategoria": "todos"
     },
     {
         "nombre": "Pimientos Tricolores",
         "precio": 790,
         "stock": 120,
         "imagen": "https://png.pngtree.com/png-clipart/20201208/original/pngtree-three-cut-colored-peppers-and-slices-png-image_5508667.jpg",
-        "categoria": "verduras organicas"
+        "categoria": "verduras organicas",
+        "subcategoria": "todos"
     },
     {
         "nombre": "Leche Entera Larga Vida 1L",

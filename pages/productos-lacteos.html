@@ -96,8 +96,8 @@
     <div class="sidebar">
         <nav class="sidebar-nav">
             <a href="productos.html">Productos</a>
-            <a href="categorias.html">Categorías</a>
-            <a href="#">Sucursales</a>
+        <a href="#"class="activo">Categorías</a>
+            <a href="../#sucursales">Sucursales</a>
         </nav>
     </div>
 
@@ -116,15 +116,23 @@
             <p>La mejor calidad en lácteos frescos.</p>
 
             <div class="cards">
-                
+
             </div>
         </section>
-        <section class="about">
-            <h2>Nuestra Historia</h2>
-            <p>Nuestra misión es proporcionar productos frescos y de calidad directamente desde el campo hasta la puerta
-                de nuestros clientes, garantizando la frescura y el sabor en cada entrega.</p>
-        </section>
+        
     </main>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <div class="cart-panel" id="cartPanel" role="dialog" aria-modal="true" aria-label="Carrito">
+
+        <button id="closeCart" class="cart-close" aria-label="Cerrar carrito">&times;</button>
+
+        <h3>🛒 Tu Carrito</h3>
+        <ul id="cartItems"></ul>
+        <div class="cart-total"><strong>Total:</strong> $<span id="cartTotal">0</span></div>
+        <button class="checkout-btn">Finalizar compra</button>
+    </div>
 
     <!-- FOOTER -->
     <footer>

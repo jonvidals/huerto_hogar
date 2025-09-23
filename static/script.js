@@ -158,35 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-document.addEventListener('DOMContentLoaded', function () {
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
-    dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const parentDropdown = this.parentElement;
-            const dropdownContent = parentDropdown.querySelector('.dropdown-content');
-
-            document.querySelectorAll('.dropdown-content').forEach(dc => {
-                if (dc !== dropdownContent) {
-                    dc.classList.remove('show');
-                }
-            });
-
-            dropdownContent.classList.toggle('show');
-        });
-    });
-    // Cerrar el dropdown
-    document.addEventListener('click', function (e) {
-        const isClickInside = e.target.closest('.dropdown');
-        if (!isClickInside) {
-            document.querySelectorAll('.dropdown-content').forEach(dc => {
-                dc.classList.remove('show');
-            });
-        }
-    });
-});
 
 document.addEventListener("DOMContentLoaded", () => {
     const userLink = document.querySelector('.user-link');
@@ -266,7 +238,7 @@ function mostrarProductos(productos) {
 }
 
 function cargarProductosPorCategoriaYSUB(categoria, subcategoria = 'todos') {
-    const rutaJSON = '../db/productos.json';  
+    const rutaJSON = '../db/productos.json';
     fetch(rutaJSON)
         .then(response => response.json())
         .then(productos => {
@@ -280,35 +252,233 @@ function cargarProductosPorCategoriaYSUB(categoria, subcategoria = 'todos') {
 }
 
 function cargarTodosLosProductos() {
-    const rutaJSON = '../db/productos.json';  
+    const rutaJSON = '../db/productos.json';
     fetch(rutaJSON)
         .then(response => response.json())
         .then(productos => {
-            mostrarProductos(productos);  
+            mostrarProductos(productos);
         })
         .catch(error => console.log("Error al cargar los productos", error));
 }
 
 const path = window.location.pathname;
 let categoria = '';
-let subcategoria = 'todos';  
+let subcategoria = 'todos';
 
-if (path.includes('frutas-frescas')) {
+if (path.includes('frutas-frescas.html')) {
     categoria = 'frutas frescas';
-} else if (path.includes('productos-lacteos')) {
+} else if (path.includes('productos-lacteos.html')) {
     categoria = 'productos lacteos';
-} else if (path.includes('verduras-organicas')) {
+} else if (path.includes('verduras-organicas.html')) {
     categoria = 'verduras organicas';
-} else if (path.includes('productos-organicos')) {
+} else if (path.includes('productos-organicos.html')) {
     categoria = 'productos organicos';
-} else if (path.includes('productos.html')) { 
-    categoria = 'todos';  
+} else if (path.includes('productos.html')) {
+    categoria = 'todos';
 }
 
 if (categoria !== 'todos') {
-    
+
     cargarProductosPorCategoriaYSUB(categoria, subcategoria);
-} else if (categoria === 'todos') {  
+} else if (categoria === 'todos') {
     cargarTodosLosProductos();
 }
 
+
+/* carritou */
+let cart = [];
+
+const cartItemsContainer = document.getElementById("cartItems");
+const cartTotalEl = document.getElementById("cartTotal");
+
+function mostrarProductos(productos) {
+    const contenedor = document.querySelector('.cards');
+    contenedor.innerHTML = '';
+
+    productos.forEach(prod => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = `
+        <img src="${prod.imagen}" alt="${prod.nombre}">
+        <h3>${prod.nombre}</h3>
+        <p>Stock: ${prod.stock}</p>
+        <p>$${prod.precio}</p>
+        <button class="btn-add-cart" 
+        data-name="${prod.nombre}" 
+        data-price="${prod.precio}"
+        data-image="${prod.imagen}">
+        AÑADIR AL CARRITO </button>`;
+        contenedor.appendChild(card);
+    });
+
+    activarBotonesCarrito();
+}
+
+const carro = document.getElementById("carro");
+const cartPanel = document.getElementById("cartPanel");
+const cartOverlay = document.getElementById("cartOverlay");
+const closeCartBtn = document.getElementById("closeCart");
+
+function openCart() {
+    cartPanel.classList.add("active");
+    cartOverlay.classList.add("active");
+    cartPanel.setAttribute("aria-hidden", "false");
+    if (closeCartBtn) closeCartBtn.focus();
+}
+
+function closeCart() {
+    cartPanel.classList.remove("active");
+    cartOverlay.classList.remove("active");
+    cartPanel.setAttribute("aria-hidden", "true");
+}
+
+if (carro) {
+    carro.addEventListener("click", (e) => {
+        e.preventDefault();
+        openCart();
+    });
+}
+
+if (closeCartBtn) closeCartBtn.addEventListener("click", closeCart);
+if (cartOverlay) cartOverlay.addEventListener("click", closeCart);
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && cartPanel.classList.contains("active")) {
+        closeCart();
+    }
+});
+
+
+function renderCart() {
+    cartItemsContainer.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+
+        const li = document.createElement("li");
+        li.classList.add("cart-item");
+        li.innerHTML = `
+      <img src="${item.image}" alt="${item.name}" class="cart-thumb">
+      <div class="item-info">
+        <span class="item-name">${item.name}</span>
+        <div class="item-controls">
+          <button class="qty-btn minus" data-index="${index}">➖</button>
+          <span class="item-qty">${item.quantity}</span>
+          <button class="qty-btn plus" data-index="${index}">➕</button>
+          <span class="item-subtotal">$${item.price * item.quantity}</span>
+        </div>
+      </div>
+    `;
+        cartItemsContainer.appendChild(li);
+    });
+
+    cartTotalEl.textContent = total;
+}
+
+function addToCart(name, price, image) {
+    const p = parseInt(price, 10) || 0;
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({ name, price: p, quantity: 1, image });
+    }
+    renderCart();
+}
+
+
+function activarBotonesCarrito() {
+    document.querySelectorAll(".btn-add-cart").forEach(btn => {
+        btn.addEventListener("click", () => {
+            addToCart(btn.dataset.name, btn.dataset.price, btn.dataset.image);
+        });
+    });
+}
+
+
+cartItemsContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("remove-btn")) {
+        const index = e.target.dataset.index;
+        cart.splice(index, 1);
+        renderCart();
+    }
+});
+
+cartItemsContainer.addEventListener("click", (e) => {
+    const index = e.target.dataset.index;
+    if (index === undefined) return;
+
+    if (e.target.classList.contains("plus")) {
+        cart[index].quantity++;
+        renderCart();
+    }
+
+    if (e.target.classList.contains("minus")) {
+        if (cart[index].quantity > 1) {
+            cart[index].quantity--;
+        } else {
+            cart.splice(index, 1);
+        }
+        renderCart();
+    }
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const sidebarButtons = document.querySelectorAll(".sidebar-dropbtn");
+
+  sidebarButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const parent = btn.closest(".sidebar-dropdown");
+      parent.classList.toggle("active");
+
+      document.querySelectorAll(".sidebar-dropdown").forEach(drop => {
+        if (drop !== parent) drop.classList.remove("active");
+      });
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".sidebar-dropbtn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const parent = btn.closest(".sidebar-dropdown");
+      parent.classList.toggle("active");
+
+      // cerrar los demás dropdowns si hay varios
+      document.querySelectorAll(".sidebar-dropdown").forEach(drop => {
+        if (drop !== parent) drop.classList.remove("active");
+      });
+    });
+  });
+});
+ function initMap() {
+            
+            const sucursales = [
+                { name: "Sucursal Santiago Centro", position: { lat: -33.4378, lng: -70.6505 } },
+                { name: "Sucursal Providencia", position: { lat: -33.4168, lng: -70.6040 } },
+                { name: "Sucursal Las Condes", position: { lat: -33.3930, lng: -70.5670 } }
+            ];
+
+            // Centro del mapa
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: sucursales[0].position
+            });
+
+            // Marcadores
+            sucursales.forEach(sucursal => {
+                const marker = new google.maps.Marker({
+                    position: sucursal.position,
+                    map: map,
+                    title: sucursal.name
+                });
+
+                const infoWindow = new google.maps.InfoWindow({
+                    content: `<h3>${sucursal.name}</h3>`
+                });
+
+                marker.addListener("click", () => {
+                    infoWindow.open(map, marker);
+                });
+            });
+        }
